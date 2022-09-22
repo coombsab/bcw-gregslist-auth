@@ -5,7 +5,8 @@ import { logger } from "../utils/Logger.js"
 class HousesService {
   async deleteHouse(houseId, userInfo) {
     const house = await this.getHouse(houseId)
-    if (userInfo.id !== house.sellerId.toString()) {
+    const sellerID = house.sellerId.toString()
+    if (userInfo.id !== sellerID) {
       throw new Forbidden("That is not your house.  You may not delete it.")
     }
 

@@ -59,7 +59,12 @@ export class HousesController extends BaseController {
   }
 
   async deleteHouse(req, res, next) {
-    await housesService.deleteHouse(req.params.houseId, req.userInfo)
-    res.send("Deleted house")
+    try {
+      await housesService.deleteHouse(req.params.houseId, req.userInfo)
+      res.send("Deleted house")
+    }
+    catch(error) {
+      next(error)
+    }
   }
 }

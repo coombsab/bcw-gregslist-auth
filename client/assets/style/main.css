@@ -14773,6 +14773,7 @@ button {
 
 img {
   max-height: 15rem;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=main.css.map */
